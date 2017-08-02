@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F506402D1F27B6B200F08C16 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F506402C1F27B6B200F08C16 /* AppDelegate.swift */; };
+		F506402F1F27B6B200F08C16 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F506402E1F27B6B200F08C16 /* GameScene.sks */; };
+		F50640311F27B6B200F08C16 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50640301F27B6B200F08C16 /* Actions.sks */; };
+		F50640331F27B6B200F08C16 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640321F27B6B200F08C16 /* GameScene.swift */; };
+		F50640351F27B6B200F08C16 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640341F27B6B200F08C16 /* GameViewController.swift */; };
+		F50640381F27B6B200F08C16 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F50640361F27B6B200F08C16 /* Main.storyboard */; };
+		F506403A1F27B6B200F08C16 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F50640391F27B6B200F08C16 /* Assets.xcassets */; };
+		F506403D1F27B6B200F08C16 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F506403B1F27B6B200F08C16 /* LaunchScreen.storyboard */; };
+		F50640481F27B6B200F08C16 /* PINGMSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640471F27B6B200F08C16 /* PINGMSTests.swift */; };
+		F50640531F27B6B200F08C16 /* PINGMSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640521F27B6B200F08C16 /* PINGMSUITests.swift */; };
+		F50640611F27C7E000F08C16 /* wallObstacles.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50640601F27C7E000F08C16 /* wallObstacles.sks */; };
+		F50640631F27D40900F08C16 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */; };
+		F50640651F28D35700F08C16 /* MSButtonNode (SushiNeko).swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */; };
+		F53CA9E01F2FCDFE0047464D /* secondWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */; };
+		F53CA9E21F30407A0047464D /* thirdDangerWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */; };
+		F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F50640441F27B6B200F08C16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F50640211F27B6B200F08C16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F50640281F27B6B200F08C16;
+			remoteInfo = PINGMS;
+		};
+		F506404F1F27B6B200F08C16 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F50640211F27B6B200F08C16 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F50640281F27B6B200F08C16;
+			remoteInfo = PINGMS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F50640291F27B6B200F08C16 /* PINGMS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PINGMS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F506402C1F27B6B200F08C16 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F506402E1F27B6B200F08C16 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		F50640301F27B6B200F08C16 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		F50640321F27B6B200F08C16 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		F50640341F27B6B200F08C16 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		F50640371F27B6B200F08C16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F50640391F27B6B200F08C16 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F506403C1F27B6B200F08C16 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F506403E1F27B6B200F08C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F50640431F27B6B200F08C16 /* PINGMSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PINGMSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50640471F27B6B200F08C16 /* PINGMSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINGMSTests.swift; sourceTree = "<group>"; };
+		F50640491F27B6B200F08C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F506404E1F27B6B200F08C16 /* PINGMSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PINGMSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F50640521F27B6B200F08C16 /* PINGMSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PINGMSUITests.swift; sourceTree = "<group>"; };
+		F50640541F27B6B200F08C16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F50640601F27C7E000F08C16 /* wallObstacles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = wallObstacles.sks; sourceTree = "<group>"; };
+		F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSButtonNode (SushiNeko).swift"; sourceTree = "<group>"; };
+		F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondWalls.sks; sourceTree = "<group>"; };
+		F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdDangerWalls.sks; sourceTree = "<group>"; };
+		F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spinnyEnemy.sks; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F50640261F27B6B200F08C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F50640401F27B6B200F08C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F506404B1F27B6B200F08C16 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F50640201F27B6B200F08C16 = {
+			isa = PBXGroup;
+			children = (
+				F506402B1F27B6B200F08C16 /* PINGMS */,
+				F50640461F27B6B200F08C16 /* PINGMSTests */,
+				F50640511F27B6B200F08C16 /* PINGMSUITests */,
+				F506402A1F27B6B200F08C16 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F506402A1F27B6B200F08C16 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F50640291F27B6B200F08C16 /* PINGMS.app */,
+				F50640431F27B6B200F08C16 /* PINGMSTests.xctest */,
+				F506404E1F27B6B200F08C16 /* PINGMSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F506402B1F27B6B200F08C16 /* PINGMS */ = {
+			isa = PBXGroup;
+			children = (
+				F506402C1F27B6B200F08C16 /* AppDelegate.swift */,
+				F506402E1F27B6B200F08C16 /* GameScene.sks */,
+				F50640301F27B6B200F08C16 /* Actions.sks */,
+				F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */,
+				F50640601F27C7E000F08C16 /* wallObstacles.sks */,
+				F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */,
+				F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */,
+				F50640321F27B6B200F08C16 /* GameScene.swift */,
+				F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */,
+				F50640341F27B6B200F08C16 /* GameViewController.swift */,
+				F50640361F27B6B200F08C16 /* Main.storyboard */,
+				F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */,
+				F50640391F27B6B200F08C16 /* Assets.xcassets */,
+				F506403B1F27B6B200F08C16 /* LaunchScreen.storyboard */,
+				F506403E1F27B6B200F08C16 /* Info.plist */,
+			);
+			path = PINGMS;
+			sourceTree = "<group>";
+		};
+		F50640461F27B6B200F08C16 /* PINGMSTests */ = {
+			isa = PBXGroup;
+			children = (
+				F50640471F27B6B200F08C16 /* PINGMSTests.swift */,
+				F50640491F27B6B200F08C16 /* Info.plist */,
+			);
+			path = PINGMSTests;
+			sourceTree = "<group>";
+		};
+		F50640511F27B6B200F08C16 /* PINGMSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F50640521F27B6B200F08C16 /* PINGMSUITests.swift */,
+				F50640541F27B6B200F08C16 /* Info.plist */,
+			);
+			path = PINGMSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F50640281F27B6B200F08C16 /* PINGMS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F50640571F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMS" */;
+			buildPhases = (
+				F50640251F27B6B200F08C16 /* Sources */,
+				F50640261F27B6B200F08C16 /* Frameworks */,
+				F50640271F27B6B200F08C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PINGMS;
+			productName = PINGMS;
+			productReference = F50640291F27B6B200F08C16 /* PINGMS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F50640421F27B6B200F08C16 /* PINGMSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F506405A1F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMSTests" */;
+			buildPhases = (
+				F506403F1F27B6B200F08C16 /* Sources */,
+				F50640401F27B6B200F08C16 /* Frameworks */,
+				F50640411F27B6B200F08C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F50640451F27B6B200F08C16 /* PBXTargetDependency */,
+			);
+			name = PINGMSTests;
+			productName = PINGMSTests;
+			productReference = F50640431F27B6B200F08C16 /* PINGMSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F506404D1F27B6B200F08C16 /* PINGMSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F506405D1F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMSUITests" */;
+			buildPhases = (
+				F506404A1F27B6B200F08C16 /* Sources */,
+				F506404B1F27B6B200F08C16 /* Frameworks */,
+				F506404C1F27B6B200F08C16 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F50640501F27B6B200F08C16 /* PBXTargetDependency */,
+			);
+			name = PINGMSUITests;
+			productName = PINGMSUITests;
+			productReference = F506404E1F27B6B200F08C16 /* PINGMSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F50640211F27B6B200F08C16 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = JoseMake;
+				TargetAttributes = {
+					F50640281F27B6B200F08C16 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3GGUJD365G;
+						ProvisioningStyle = Automatic;
+					};
+					F50640421F27B6B200F08C16 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3GGUJD365G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F50640281F27B6B200F08C16;
+					};
+					F506404D1F27B6B200F08C16 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 3GGUJD365G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F50640281F27B6B200F08C16;
+					};
+				};
+			};
+			buildConfigurationList = F50640241F27B6B200F08C16 /* Build configuration list for PBXProject "PINGMS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F50640201F27B6B200F08C16;
+			productRefGroup = F506402A1F27B6B200F08C16 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F50640281F27B6B200F08C16 /* PINGMS */,
+				F50640421F27B6B200F08C16 /* PINGMSTests */,
+				F506404D1F27B6B200F08C16 /* PINGMSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F50640271F27B6B200F08C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50640611F27C7E000F08C16 /* wallObstacles.sks in Resources */,
+				F53CA9E01F2FCDFE0047464D /* secondWalls.sks in Resources */,
+				F53CA9E21F30407A0047464D /* thirdDangerWalls.sks in Resources */,
+				F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */,
+				F50640381F27B6B200F08C16 /* Main.storyboard in Resources */,
+				F506402F1F27B6B200F08C16 /* GameScene.sks in Resources */,
+				F506403A1F27B6B200F08C16 /* Assets.xcassets in Resources */,
+				F506403D1F27B6B200F08C16 /* LaunchScreen.storyboard in Resources */,
+				F50640311F27B6B200F08C16 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F50640411F27B6B200F08C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F506404C1F27B6B200F08C16 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F50640251F27B6B200F08C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50640331F27B6B200F08C16 /* GameScene.swift in Sources */,
+				F50640351F27B6B200F08C16 /* GameViewController.swift in Sources */,
+				F50640631F27D40900F08C16 /* CGFloat+Extensions.swift in Sources */,
+				F50640651F28D35700F08C16 /* MSButtonNode (SushiNeko).swift in Sources */,
+				F506402D1F27B6B200F08C16 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F506403F1F27B6B200F08C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50640481F27B6B200F08C16 /* PINGMSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F506404A1F27B6B200F08C16 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F50640531F27B6B200F08C16 /* PINGMSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F50640451F27B6B200F08C16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F50640281F27B6B200F08C16 /* PINGMS */;
+			targetProxy = F50640441F27B6B200F08C16 /* PBXContainerItemProxy */;
+		};
+		F50640501F27B6B200F08C16 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F50640281F27B6B200F08C16 /* PINGMS */;
+			targetProxy = F506404F1F27B6B200F08C16 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F50640361F27B6B200F08C16 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F50640371F27B6B200F08C16 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F506403B1F27B6B200F08C16 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F506403C1F27B6B200F08C16 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F50640551F27B6B200F08C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F50640561F27B6B200F08C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F50640581F27B6B200F08C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F50640591F27B6B200F08C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMS/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		F506405B1F27B6B200F08C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PINGMS.app/PINGMS";
+			};
+			name = Debug;
+		};
+		F506405C1F27B6B200F08C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PINGMS.app/PINGMS";
+			};
+			name = Release;
+		};
+		F506405E1F27B6B200F08C16 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PINGMS;
+			};
+			name = Debug;
+		};
+		F506405F1F27B6B200F08C16 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 3GGUJD365G;
+				INFOPLIST_FILE = PINGMSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = JoseMake.io.PINGMSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = PINGMS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F50640241F27B6B200F08C16 /* Build configuration list for PBXProject "PINGMS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F50640551F27B6B200F08C16 /* Debug */,
+				F50640561F27B6B200F08C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F50640571F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F50640581F27B6B200F08C16 /* Debug */,
+				F50640591F27B6B200F08C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F506405A1F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F506405B1F27B6B200F08C16 /* Debug */,
+				F506405C1F27B6B200F08C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F506405D1F27B6B200F08C16 /* Build configuration list for PBXNativeTarget "PINGMSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F506405E1F27B6B200F08C16 /* Debug */,
+				F506405F1F27B6B200F08C16 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F50640211F27B6B200F08C16 /* Project object */;
+}
