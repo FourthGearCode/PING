@@ -20,6 +20,8 @@
 		F50640611F27C7E000F08C16 /* wallObstacles.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50640601F27C7E000F08C16 /* wallObstacles.sks */; };
 		F50640631F27D40900F08C16 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */; };
 		F50640651F28D35700F08C16 /* MSButtonNode (SushiNeko).swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */; };
+		F50A0E921F38B90C00E516DF /* speedUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50A0E911F38B90C00E516DF /* speedUp.sks */; };
+		F50C189E1F3367A900899877 /* needleEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50C189D1F3367A900899877 /* needleEnemy.sks */; };
 		F53CA9E01F2FCDFE0047464D /* secondWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */; };
 		F53CA9E21F30407A0047464D /* thirdDangerWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */; };
 		F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */; };
@@ -62,6 +64,8 @@
 		F50640601F27C7E000F08C16 /* wallObstacles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = wallObstacles.sks; sourceTree = "<group>"; };
 		F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSButtonNode (SushiNeko).swift"; sourceTree = "<group>"; };
+		F50A0E911F38B90C00E516DF /* speedUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = speedUp.sks; sourceTree = "<group>"; };
+		F50C189D1F3367A900899877 /* needleEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = needleEnemy.sks; sourceTree = "<group>"; };
 		F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondWalls.sks; sourceTree = "<group>"; };
 		F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdDangerWalls.sks; sourceTree = "<group>"; };
 		F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spinnyEnemy.sks; sourceTree = "<group>"; };
@@ -117,12 +121,14 @@
 			children = (
 				F506402C1F27B6B200F08C16 /* AppDelegate.swift */,
 				F506402E1F27B6B200F08C16 /* GameScene.sks */,
+				F50640321F27B6B200F08C16 /* GameScene.swift */,
 				F50640301F27B6B200F08C16 /* Actions.sks */,
 				F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */,
 				F50640601F27C7E000F08C16 /* wallObstacles.sks */,
+				F50C189D1F3367A900899877 /* needleEnemy.sks */,
 				F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */,
+				F50A0E911F38B90C00E516DF /* speedUp.sks */,
 				F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */,
-				F50640321F27B6B200F08C16 /* GameScene.swift */,
 				F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */,
 				F50640341F27B6B200F08C16 /* GameViewController.swift */,
 				F50640361F27B6B200F08C16 /* Main.storyboard */,
@@ -268,7 +274,9 @@
 				F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */,
 				F50640381F27B6B200F08C16 /* Main.storyboard in Resources */,
 				F506402F1F27B6B200F08C16 /* GameScene.sks in Resources */,
+				F50A0E921F38B90C00E516DF /* speedUp.sks in Resources */,
 				F506403A1F27B6B200F08C16 /* Assets.xcassets in Resources */,
+				F50C189E1F3367A900899877 /* needleEnemy.sks in Resources */,
 				F506403D1F27B6B200F08C16 /* LaunchScreen.storyboard in Resources */,
 				F50640311F27B6B200F08C16 /* Actions.sks in Resources */,
 			);

@@ -27,6 +27,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var yellowCounter: Int = 0
     
     
+    var firstText: SKLabelNode!
+    
     var pingBall: SKSpriteNode!
     
     var pingBallOuter: SKSpriteNode!
@@ -112,13 +114,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var slicerActivation: Bool = false
     
+    var halt = false
     
+    var theLight: SKSpriteNode!
     
+    var obsCounter = 0
+    
+    var obsRemoval = Bool()
+    
+    var blueSpawnBool = true
+    
+    var yellowSpawnBool = true
+    
+    var slicerStartBool = true
+    
+    var offset:Int = 0
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        arrayNode = self.childNode(withName: "arrayNode") as! SKNode
+//        arrayNode = self.childNode(withName: "arrayNode") as! SKNode
         
         pingBall = self.childNode(withName: "pingBall") as! SKSpriteNode
         
@@ -129,6 +144,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         blueWalls = self.childNode(withName: "blueWalls") as! SKReferenceNode
         
         yellowWalls = self.childNode(withName: "yellowWalls") as! SKReferenceNode
+        
+        firstText = self.childNode(withName: "//text1") as! SKLabelNode
         
         slicer = self.childNode(withName: "slicer") as! SKReferenceNode
         
@@ -148,6 +165,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode
         
+        theLight = self.childNode(withName: "theLight") as! SKSpriteNode
         
         let bottomPosition = CGPoint(x: 284, y: -100)
         
@@ -224,22 +242,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             gameOver()
         }
     }
-    var npcList = [SKSpriteNode]()
+//    var npcList = [SKSpriteNode]()
     
-    func boiiiiiiiii() {
-        for childReference in arrayNode.children{
-            for childSKNode in childReference.children{
-                for child in childSKNode.children{
-                    npcList.append(child as! SKSpriteNode)
-                    
-                }
+//    func boi() {
+//        for childReference in arrayNode.children{
+//            for childSKNode in childReference.children{
+//                for child in childSKNode.children{
+//                    npcList.append(child as! SKSpriteNode)
+//                    
+//                    let blue = npcList[2]
+//                    if blue.position.x <= -12.5{
+//                        blue.removeFromParent()
+//                    }
+//                    
+//                    
+//                }
+//            }
+//        }
+//    }
+//    Lisas confusing code
+    
+    func increaseSpeed() {
+        
+       
+        
+        if obsCounter == 0 && state != .gameOver {
+            print("jump is running")
+            firstText.run(SKAction(named: "speedUp")!){
+                self.scrollSpeed += 200 + CGFloat(self.offset)
+//                self.halt = false
             }
+//            the speed animation counts as the seconds to turn halt back off
+//            turn on halt AND call increase speed function!
+            halt = false
         }
     }
     
     func updateObstacles() {
         /* Update Obstacles */
-        
+       
         //        position movement
 //        nullPoint.position.x -= scrollSpeed * CGFloat(fixedDelta)
         
@@ -260,7 +301,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         /* Time to add a new obstacle? */
-        if spawnTimer >= 1.5 {
+        if spawnTimer >= 1.1 {
             
             /* Create a new obstacle by copying the source obstacle */
             let newPingWalls = pingWalls.copy() as! SKNode
@@ -275,19 +316,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             newPingWalls.position = self.convert(randomPosition, to: nullPoint)
             
             counterTest += 1
-            print(counterTest)
+//            print(counterTest)
             
-            // Reset spawn timer
-            spawnTimer = 0
+            obsCounter += 1
+            
+            
+            
             
             if counterTest == 3 {
+                halt = true
                 startWallUpdate = false
                 secondEnemyStart = true
+                
+//                increaseSpeed()
             }
-            
+            // Reset spawn timer
+            spawnTimer = 0
           
         }
         
+    }
+    
+    func blueStarterFix() {
+        if blueSpawnBool == true {
+            spawnTimer = 0
+            blueSpawnBool = false
+        }
+    }
+   
+    func yellowStarterFix() {
+        if yellowSpawnBool == true {
+            spawnTimer = 0
+            yellowSpawnBool = false
+        }
     }
     
     func updateObstacles2() {
@@ -302,6 +363,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             /* Get obstacle node position, convert node position to scene space */
             let nullPosition = nullPoint.convert(obstacle.position, to: self)
             
+            print(nullPosition.x)
+            
             /* Check if obstacle has left the scene */
             if nullPosition.x <= -12.5 {
                 // 26 is one half the width of an obstacle
@@ -313,7 +376,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         /* Time to add a new obstacle? */
-        if spawnTimer >= 1.0 {
+        
+        blueStarterFix()
+        
+        if spawnTimer >= 0.8 {
+            
+            
             
             /* Create a new obstacle by copying the source obstacle */
             let newBlueWalls = blueWalls.copy() as! SKNode
@@ -330,9 +398,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             blueCounter += 1
             print(blueCounter)
             
-            if blueCounter == 4 {
+            obsCounter += 1
+           
+            
+            if blueCounter == 7 {
+                halt = true
                 secondEnemyStart = false
                 thirdEnemyStart = true
+//                increaseSpeed()
             }
             
             // Reset spawn timer
@@ -365,7 +438,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         /* Time to add a new obstacle? */
-        if spawnTimer >= 1.5 {
+        yellowStarterFix()
+        
+        if spawnTimer >= 0.8 {
             
             
             
@@ -381,12 +456,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             /* Convert new node position back to obstacle layer space */
             newYellowWalls.position = self.convert(randomPosition, to: nullPoint)
             
-//            yellowCounter += 1
-//            print(yellowCounter)
+            yellowCounter += 1
+            print(yellowCounter)
             
 //            if counterTest == 5 {
 //                startWallUpdate = false
 //            }
+            
+            obsCounter += 1
+            
+            if yellowCounter == 7 {
+                halt = true
+                thirdEnemyStart = false
+                slicerActivation = true
+                //                increaseSpeed()
+            }
+
             
             // Reset spawn timer
             spawnTimer = 0
@@ -394,6 +479,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
 
+    func slicerStart() {
+        if slicerStartBool == true{
+            slicerTimer = 0
+            slicerStartBool = false
+        }
+    }
     
     func slicerENGAGE() {
 //        /* Update Obstacles */
@@ -424,27 +515,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-       
+       slicerStart()
         
         if slicerTimer >= 0.5 {
             scrollSpeed = 777
         slicer.position.y += scrollSpeed * CGFloat(fixedDelta)
             
-            
-//            let infiniteRotate: SKAction = SKAction.init(named: "")
-            
-            
-            
-//            counterTest += 1
-//            print(counterTest)
-//            
-//            if counterTest == 3 {
-//                startWallUpdate = false
-//                secondEnemyStart = true
-//            }
-            
-            // Reset spawn timer
-//            slicerTimer = 0
         }
         
     }
@@ -572,7 +648,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //        you can also use this for decrementing healthzz
         }
         
-        if nodeA.physicsBody?.categoryBitMask == 4 || nodeB.physicsBody?.categoryBitMask == 4{
+        if nodeA.physicsBody?.categoryBitMask == 4 && nodeB.physicsBody?.categoryBitMask == 1 ||
+            nodeA.physicsBody?.categoryBitMask == 1 && nodeB.physicsBody?.categoryBitMask == 4{
             points += 1
             scoreLabel.text = String(points)
 //            print(points)
@@ -580,10 +657,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        if nodeA.physicsBody?.categoryBitMask == 8 || nodeB.physicsBody?.categoryBitMask == 8{
+        if nodeA.physicsBody?.categoryBitMask == 8 || nodeB.physicsBody?.categoryBitMask == 8 {
+            
+            if nodeA.physicsBody?.categoryBitMask == 8 {
+                nodeB.removeFromParent()
+               obsRemoval = true
+                print("true")
+            }
+            
+            if nodeB.physicsBody?.categoryBitMask == 8 {
+                nodeA.removeFromParent()
+                obsRemoval = true
+                print("true")
+            }
+            
+        }
+        
+        
+        if nodeA.physicsBody?.categoryBitMask == 16 || nodeB.physicsBody?.categoryBitMask == 16{
             points += 1
             scoreLabel.text = String(points)
-//            print(points)
+            //            print(points)
+            //        jump.isUserInteractionEnabled = true
+            return
+        }
+        
+        if nodeA.physicsBody?.categoryBitMask == 16 || nodeB.physicsBody?.categoryBitMask == 16{
+            points += 1
+            scoreLabel.text = String(points)
+            //            print(points)
             //        jump.isUserInteractionEnabled = true
             return
         }
@@ -591,6 +693,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //    gameOver()
         restartButton.state = .MSButtonNodeStateActive
         
+    }
+    
+    func obstacleChecker() {
+        if obsRemoval == true {
+            obsCounter -= 1
+            obsRemoval = false
+        }
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
@@ -615,11 +724,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+        obstacleChecker()
+        
         //    print(invincibility)
         //    print(jump.isUserInteractionEnabled)
         
 //        slicer.
-        
+        print(nullPoint.children.count)
         if state != .gameOver{
             nullPoint.position.x -= scrollSpeed * CGFloat(fixedDelta)
         }
@@ -644,35 +755,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Called before each frame is rendered
         spawnTimer += fixedDelta
         slicerTimer += fixedDelta
-        delayTimer += fixedDelta
+        
         if bounceBool == true {bounceTimer += fixedDelta}
         //        if spawnTimer >= 10{
         //            gameOver()
         //        }
         
 //        slicerENGAGE()
+        slicerTimer += fixedDelta
+        delayTimer += fixedDelta
+//        print(nullPoint.children)
+//        print("I equal \(nullPoint.children.count)")
         
-        if startWallUpdate  {
+        if halt == true{
+            if obsCounter == 0 && state != .gameOver{
+            
+                scrollSpeed = 0
+            
+                increaseSpeed()
+                
+            }
+        }
+        
+        print("im the obs counter of\(obsCounter)")
+        
+        if startWallUpdate && !halt {
             updateObstacles()
             
-        } else if secondEnemyStart {
+        } else if secondEnemyStart && !halt {
             
-            if self.delayTimer >= 7.0{
-            self.scrollSpeed = 200
+//            if self.delayTimer >= 3.0{
+//            self.scrollSpeed = 250
 //                self.delayTimer = 0
-            }
+//            }
             updateObstacles2()
-        } else if thirdEnemyStart{
-            
-            if self.delayTimer >= 14.0{
-               self.scrollSpeed = 300
-            self.delayTimer = 0
-            }
+        } else if thirdEnemyStart && !halt {
+//            
+//            if self.delayTimer >= 3.0{
+//               self.scrollSpeed = 350
+//            self.delayTimer = 0
+//            }
         
         
             updateObstacles3()
 //            nullPoint.position.x -= scrollSpeed * CGFloat(fixedDelta)
-        } else if slicerActivation{
+        } else if slicerActivation && !halt {
             slicerENGAGE()
         }
         
