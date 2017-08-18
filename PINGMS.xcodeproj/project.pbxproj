@@ -20,11 +20,22 @@
 		F50640611F27C7E000F08C16 /* wallObstacles.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50640601F27C7E000F08C16 /* wallObstacles.sks */; };
 		F50640631F27D40900F08C16 /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */; };
 		F50640651F28D35700F08C16 /* MSButtonNode (SushiNeko).swift in Sources */ = {isa = PBXBuildFile; fileRef = F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */; };
+		F50735731F45D9FE0020063C /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50735721F45D9FE0020063C /* MainMenu.swift */; };
+		F50735751F4620E50020063C /* Options.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50735741F4620E50020063C /* Options.sks */; };
+		F50735771F46224F0020063C /* LoadMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50735761F46224F0020063C /* LoadMenu.sks */; };
 		F50A0E921F38B90C00E516DF /* speedUp.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50A0E911F38B90C00E516DF /* speedUp.sks */; };
 		F50C189E1F3367A900899877 /* needleEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = F50C189D1F3367A900899877 /* needleEnemy.sks */; };
 		F53CA9E01F2FCDFE0047464D /* secondWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */; };
 		F53CA9E21F30407A0047464D /* thirdDangerWalls.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */; };
 		F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */; };
+		F53FF5151F42404E00C6797B /* flowers.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F53FF5141F42404E00C6797B /* flowers.mp4 */; };
+		F53FF5191F42427600C6797B /* videoFile.sks in Resources */ = {isa = PBXBuildFile; fileRef = F53FF5181F42427600C6797B /* videoFile.sks */; };
+		F54A9D631F3DE95F002AEE45 /* pingEmitter.sks in Resources */ = {isa = PBXBuildFile; fileRef = F54A9D621F3DE95F002AEE45 /* pingEmitter.sks */; };
+		F55A6D8B1F47444300CB92FA /* cageBeat.sks in Resources */ = {isa = PBXBuildFile; fileRef = F55A6D8A1F47444300CB92FA /* cageBeat.sks */; };
+		F57663BF1F44CB6600A2B4F5 /* updatedNeedleInt.mov in Resources */ = {isa = PBXBuildFile; fileRef = F57663BE1F44CB6600A2B4F5 /* updatedNeedleInt.mov */; };
+		F57663C21F44D21500A2B4F5 /* PINGMainMenu_Sc.mov in Resources */ = {isa = PBXBuildFile; fileRef = F57663C01F44D21500A2B4F5 /* PINGMainMenu_Sc.mov */; };
+		F57663C31F44D21500A2B4F5 /* PINGMainMenu.mov in Resources */ = {isa = PBXBuildFile; fileRef = F57663C11F44D21500A2B4F5 /* PINGMainMenu.mov */; };
+		F57663C51F44D3D900A2B4F5 /* pressStart.sks in Resources */ = {isa = PBXBuildFile; fileRef = F57663C41F44D3D900A2B4F5 /* pressStart.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,11 +75,22 @@
 		F50640601F27C7E000F08C16 /* wallObstacles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = wallObstacles.sks; sourceTree = "<group>"; };
 		F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MSButtonNode (SushiNeko).swift"; sourceTree = "<group>"; };
+		F50735721F45D9FE0020063C /* MainMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		F50735741F4620E50020063C /* Options.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Options.sks; sourceTree = "<group>"; };
+		F50735761F46224F0020063C /* LoadMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LoadMenu.sks; sourceTree = "<group>"; };
 		F50A0E911F38B90C00E516DF /* speedUp.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = speedUp.sks; sourceTree = "<group>"; };
 		F50C189D1F3367A900899877 /* needleEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = needleEnemy.sks; sourceTree = "<group>"; };
 		F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = secondWalls.sks; sourceTree = "<group>"; };
 		F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = thirdDangerWalls.sks; sourceTree = "<group>"; };
 		F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = spinnyEnemy.sks; sourceTree = "<group>"; };
+		F53FF5141F42404E00C6797B /* flowers.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = flowers.mp4; sourceTree = "<group>"; };
+		F53FF5181F42427600C6797B /* videoFile.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = videoFile.sks; sourceTree = "<group>"; };
+		F54A9D621F3DE95F002AEE45 /* pingEmitter.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pingEmitter.sks; sourceTree = "<group>"; };
+		F55A6D8A1F47444300CB92FA /* cageBeat.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = cageBeat.sks; sourceTree = "<group>"; };
+		F57663BE1F44CB6600A2B4F5 /* updatedNeedleInt.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = updatedNeedleInt.mov; sourceTree = "<group>"; };
+		F57663C01F44D21500A2B4F5 /* PINGMainMenu_Sc.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = PINGMainMenu_Sc.mov; sourceTree = "<group>"; };
+		F57663C11F44D21500A2B4F5 /* PINGMainMenu.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = PINGMainMenu.mov; sourceTree = "<group>"; };
+		F57663C41F44D3D900A2B4F5 /* pressStart.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = pressStart.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,20 +142,31 @@
 			isa = PBXGroup;
 			children = (
 				F506402C1F27B6B200F08C16 /* AppDelegate.swift */,
+				F54A9D621F3DE95F002AEE45 /* pingEmitter.sks */,
 				F506402E1F27B6B200F08C16 /* GameScene.sks */,
 				F50640321F27B6B200F08C16 /* GameScene.swift */,
+				F55A6D8A1F47444300CB92FA /* cageBeat.sks */,
+				F50735721F45D9FE0020063C /* MainMenu.swift */,
+				F57663C41F44D3D900A2B4F5 /* pressStart.sks */,
+				F53FF5181F42427600C6797B /* videoFile.sks */,
 				F50640301F27B6B200F08C16 /* Actions.sks */,
+				F50735741F4620E50020063C /* Options.sks */,
+				F50735761F46224F0020063C /* LoadMenu.sks */,
 				F53CA9E31F30DDBA0047464D /* spinnyEnemy.sks */,
 				F50640601F27C7E000F08C16 /* wallObstacles.sks */,
-				F50C189D1F3367A900899877 /* needleEnemy.sks */,
 				F53CA9DF1F2FCDFE0047464D /* secondWalls.sks */,
-				F50A0E911F38B90C00E516DF /* speedUp.sks */,
 				F53CA9E11F30407A0047464D /* thirdDangerWalls.sks */,
+				F50C189D1F3367A900899877 /* needleEnemy.sks */,
+				F50A0E911F38B90C00E516DF /* speedUp.sks */,
 				F50640641F28D35700F08C16 /* MSButtonNode (SushiNeko).swift */,
 				F50640341F27B6B200F08C16 /* GameViewController.swift */,
+				F57663C01F44D21500A2B4F5 /* PINGMainMenu_Sc.mov */,
+				F57663C11F44D21500A2B4F5 /* PINGMainMenu.mov */,
 				F50640361F27B6B200F08C16 /* Main.storyboard */,
 				F50640621F27D40900F08C16 /* CGFloat+Extensions.swift */,
 				F50640391F27B6B200F08C16 /* Assets.xcassets */,
+				F53FF5141F42404E00C6797B /* flowers.mp4 */,
+				F57663BE1F44CB6600A2B4F5 /* updatedNeedleInt.mov */,
 				F506403B1F27B6B200F08C16 /* LaunchScreen.storyboard */,
 				F506403E1F27B6B200F08C16 /* Info.plist */,
 			);
@@ -268,15 +301,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F50735771F46224F0020063C /* LoadMenu.sks in Resources */,
+				F57663C21F44D21500A2B4F5 /* PINGMainMenu_Sc.mov in Resources */,
+				F55A6D8B1F47444300CB92FA /* cageBeat.sks in Resources */,
 				F50640611F27C7E000F08C16 /* wallObstacles.sks in Resources */,
+				F50735751F4620E50020063C /* Options.sks in Resources */,
 				F53CA9E01F2FCDFE0047464D /* secondWalls.sks in Resources */,
+				F53FF5151F42404E00C6797B /* flowers.mp4 in Resources */,
+				F54A9D631F3DE95F002AEE45 /* pingEmitter.sks in Resources */,
+				F57663C31F44D21500A2B4F5 /* PINGMainMenu.mov in Resources */,
 				F53CA9E21F30407A0047464D /* thirdDangerWalls.sks in Resources */,
+				F57663BF1F44CB6600A2B4F5 /* updatedNeedleInt.mov in Resources */,
+				F57663C51F44D3D900A2B4F5 /* pressStart.sks in Resources */,
 				F53CA9E41F30DDBA0047464D /* spinnyEnemy.sks in Resources */,
 				F50640381F27B6B200F08C16 /* Main.storyboard in Resources */,
 				F506402F1F27B6B200F08C16 /* GameScene.sks in Resources */,
 				F50A0E921F38B90C00E516DF /* speedUp.sks in Resources */,
 				F506403A1F27B6B200F08C16 /* Assets.xcassets in Resources */,
 				F50C189E1F3367A900899877 /* needleEnemy.sks in Resources */,
+				F53FF5191F42427600C6797B /* videoFile.sks in Resources */,
 				F506403D1F27B6B200F08C16 /* LaunchScreen.storyboard in Resources */,
 				F50640311F27B6B200F08C16 /* Actions.sks in Resources */,
 			);
@@ -305,6 +348,7 @@
 			files = (
 				F50640331F27B6B200F08C16 /* GameScene.swift in Sources */,
 				F50640351F27B6B200F08C16 /* GameViewController.swift in Sources */,
+				F50735731F45D9FE0020063C /* MainMenu.swift in Sources */,
 				F50640631F27D40900F08C16 /* CGFloat+Extensions.swift in Sources */,
 				F50640651F28D35700F08C16 /* MSButtonNode (SushiNeko).swift in Sources */,
 				F506402D1F27B6B200F08C16 /* AppDelegate.swift in Sources */,

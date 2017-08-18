@@ -8,6 +8,7 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 enum GameState {
     case title, ready, playing, gameOver
@@ -16,7 +17,7 @@ enum GameState {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    var state: GameState = .title
+    var state: GameState = .ready
     
     var arrayNode: SKNode!
     
@@ -33,11 +34,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var pingBallOuter: SKSpriteNode!
     
-    var pingWalls: SKReferenceNode!
+    var redScalpel: SKReferenceNode!
     
-    var blueWalls: SKReferenceNode!
+    var blueScalpel: SKReferenceNode!
     
-    var yellowWalls: SKReferenceNode!
+    var yellowScalpel: SKReferenceNode!
     
     var slicer: SKReferenceNode!
     
@@ -63,6 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var up = true
     
+    var runningAnimation = false
+    
     //    var leftPressed = false
     //
     //    var rightPressed = false
@@ -70,15 +73,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var timesDouble = 200.0 {
         //        didSet will act as a function if the variable is changed
         didSet{
-            if timesDouble < 25.0 {
+            if timesDouble == 0{
+                timesDouble = 0
+            }
+            else if timesDouble < 25.0 {
                 timesDouble = 25.0
             }
-            
             if timesDouble > 200.0 {
                 timesDouble = 200.0
             }
         }
     }
+    
+    var particleShiftCheck = Bool()
+    
+    
     
     var timesEase = Bool()
     
@@ -130,8 +139,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var offset:Int = 0
     
+//    var needleScene: SKSpriteNode!
+    
+    var pauseMovement = false
+    
+    let pingParticle = SKEmitterNode(fileNamed: "pingEmitter")!
+    
+    let needleIntro = SKVideoNode(fileNamed: "updatedNeedleInt.mov")
+    
+    var quitButton: MSButtonNode!
+    
+    var quitLabel: SKLabelNode!
+    
+    
+    
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
+        
+        addChild(pingParticle)
+
         
 //        arrayNode = self.childNode(withName: "arrayNode") as! SKNode
         
@@ -139,11 +166,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         pingBallOuter = pingBall.childNode(withName: "pingBallOuter") as! SKSpriteNode
         
-        pingWalls = self.childNode(withName: "pingWalls") as! SKReferenceNode
+        redScalpel = self.childNode(withName: "redScalpel") as! SKReferenceNode
         
-        blueWalls = self.childNode(withName: "blueWalls") as! SKReferenceNode
+        blueScalpel = self.childNode(withName: "blueScalpel") as! SKReferenceNode
         
-        yellowWalls = self.childNode(withName: "yellowWalls") as! SKReferenceNode
+        yellowScalpel = self.childNode(withName: "yellowScalpel") as! SKReferenceNode
         
         firstText = self.childNode(withName: "//text1") as! SKLabelNode
         
@@ -161,6 +188,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         restartButton = self.childNode(withName: "//restartButton") as! MSButtonNode
         
+        quitButton = self.childNode(withName: "//quitButton") as! MSButtonNode
+        
+        quitLabel = self.childNode(withName: "quitTxt") as! SKLabelNode
+        
         jump = self.childNode(withName: "JUMP") as! SKSpriteNode
         
         scoreLabel = self.childNode(withName: "scoreLabel") as! SKLabelNode
@@ -170,6 +201,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bottomPosition = CGPoint(x: 284, y: -100)
         
         slicer.position = bottomPosition
+        
+//        needleScene = self.childNode(withName: "needleScene") as! SKSpriteNode
+        
+//        pingParticle = self.childNode(withName: "pingParticle") as! SKEmitterNode
+        
         
         
         self.state = .ready
@@ -196,6 +232,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.restartButton.state = .MSButtonNodeStateHidden
         }
         
+        quitButton.selectedHandler = {
+            
+            /* Grab reference to our SpriteKit view */
+            let skView = self.view as SKView!
+            
+            /* Variable for loading Game scene */
+            let scene = MainMenu(fileNamed: "pressStart") as MainMenu!
+            
+            /* Ensure correct aspect mode */
+            scene?.scaleMode = .aspectFill
+            
+            /* Restart game scene */
+            skView?.presentScene(scene)
+            
+            /* Hide restart button */
+            self.quitButton.state = .MSButtonNodeStateHidden
+        }
+        
+        self.quitLabel.isHidden = true
+        
         self.restartLabel.isHidden = true
         
         self.deathLabel.isHidden = true
@@ -205,6 +261,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         physicsWorld.contactDelegate = self
         
     }
+    
+    func needleVideo() {
+        needleIntro.position = CGPoint(x: 284, y: 160)
+        needleIntro.zPosition = 2000
+        needleIntro.size.height = 320 //self.frame.height
+        needleIntro.size.width = 568//self.frame.width
+        addChild(needleIntro)
+        needleIntro.play()
+        print("kkkkkkkkk")
+    }
+    
+   
+    
+   
     
     func gameOver() {
         /* Game over! */
@@ -216,6 +286,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.restartLabel.isHidden = false
         
         self.deathLabel.isHidden = false
+        
+        self.quitLabel.isHidden = false
         
         /* Change play button selection handler */
         //            restartButton.selectedHandler = {
@@ -266,12 +338,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
        
         
-        if obsCounter == 0 && state != .gameOver {
+        if  obsCounter == 0 && state != .gameOver {
+           
             print("jump is running")
-            firstText.run(SKAction(named: "speedUp")!){
-                self.scrollSpeed += 200 + CGFloat(self.offset)
+//            needleScene.zPosition = 200
+//            timesDouble = 0
+//            
+////            needleVideo()
+//                self.scrollSpeed += 200 + CGFloat(self.offset)
+////                self.needleScene.removeFromParent()
+////                self.needleScene = nil
+//                self.timesDouble = 200
+////                self.runningAnimation = false
 //                self.halt = false
-            }
+            
 //            the speed animation counts as the seconds to turn halt back off
 //            turn on halt AND call increase speed function!
             halt = false
@@ -295,7 +375,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // 26 is one half the width of an obstacle
                 
                 /* Remove obstacle node from obstacle layer */
-                pingWalls.removeFromParent()
+                redScalpel.removeFromParent()
             }
             
         }
@@ -304,8 +384,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if spawnTimer >= 1.1 {
             
             /* Create a new obstacle by copying the source obstacle */
-            let newPingWalls = pingWalls.copy() as! SKNode
-            nullPoint.addChild(newPingWalls)
+            let newRedScalpel = redScalpel.copy() as! SKNode
+            nullPoint.addChild(newRedScalpel)
             //            Shows when a new wall is created
             print("im a new brick boii" )
             
@@ -313,7 +393,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let randomPosition = CGPoint(x: 600, y: CGFloat.random(min: 70, max: 270))
             
             /* Convert new node position back to obstacle layer space */
-            newPingWalls.position = self.convert(randomPosition, to: nullPoint)
+            newRedScalpel.position = self.convert(randomPosition, to: nullPoint)
             
             counterTest += 1
 //            print(counterTest)
@@ -324,7 +404,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             if counterTest == 3 {
-                halt = true
+//                halt = true
                 startWallUpdate = false
                 secondEnemyStart = true
                 
@@ -370,7 +450,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // 26 is one half the width of an obstacle
                 
                 /* Remove obstacle node from obstacle layer */
-                blueWalls.removeFromParent()
+                blueScalpel.removeFromParent()
             }
             
         }
@@ -384,8 +464,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             /* Create a new obstacle by copying the source obstacle */
-            let newBlueWalls = blueWalls.copy() as! SKNode
-            nullPoint.addChild(newBlueWalls)
+            let newBlueScalpel = blueScalpel.copy() as! SKNode
+            nullPoint.addChild(newBlueScalpel)
             //            Shows when a new wall is created
             print("im a BLUe brick boii")
             
@@ -393,7 +473,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let randomPosition = CGPoint(x: 600, y: CGFloat.random(min: 70, max: 270))
             
             /* Convert new node position back to obstacle layer space */
-            newBlueWalls.position = self.convert(randomPosition, to: nullPoint)
+            newBlueScalpel.position = self.convert(randomPosition, to: nullPoint)
             
             blueCounter += 1
             print(blueCounter)
@@ -402,7 +482,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
            
             
             if blueCounter == 7 {
-                halt = true
+//                halt = true
                 secondEnemyStart = false
                 thirdEnemyStart = true
 //                increaseSpeed()
@@ -432,7 +512,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 // 26 is one half the width of an obstacle
                 
                 /* Remove obstacle node from obstacle layer */
-                yellowWalls.removeFromParent()
+                yellowScalpel.removeFromParent()
             }
             
         }
@@ -445,8 +525,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             /* Create a new obstacle by copying the source obstacle */
-            let newYellowWalls = yellowWalls.copy() as! SKNode
-            nullPoint.addChild(newYellowWalls)
+            let newYellowScalpel = yellowScalpel.copy() as! SKNode
+            nullPoint.addChild(newYellowScalpel)
             //            Shows when a new wall is created
             print("im a yellow brick boii")
             
@@ -454,7 +534,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let randomPosition = CGPoint(x: 600, y: CGFloat.random(min: 70, max: 270))
             
             /* Convert new node position back to obstacle layer space */
-            newYellowWalls.position = self.convert(randomPosition, to: nullPoint)
+            newYellowScalpel.position = self.convert(randomPosition, to: nullPoint)
             
             yellowCounter += 1
             print(yellowCounter)
@@ -465,12 +545,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             obsCounter += 1
             
-            if yellowCounter == 7 {
-                halt = true
-                thirdEnemyStart = false
-                slicerActivation = true
-                //                increaseSpeed()
-            }
+//            if yellowCounter == 7 {
+////                halt = true
+//                thirdEnemyStart = false
+//                slicerActivation = true
+//                //                increaseSpeed()
+//            }
 
             
             // Reset spawn timer
@@ -724,6 +804,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(_ currentTime: TimeInterval) {
         
+        
+        
+        pingParticle.position = pingBall.position
+        
         obstacleChecker()
         
         //    print(invincibility)
@@ -745,11 +829,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timesDouble += 21
         }
         
+        
         if self.state == .gameOver {return}
         if up == true{
             pingBall.position.y += CGFloat(fixedDelta * timesDouble)
+            pingParticle.yAcceleration = -200
         }else if up != true{
             pingBall.position.y -= CGFloat(fixedDelta * timesDouble)
+            pingParticle.yAcceleration = 200
         }
         //
         // Called before each frame is rendered
@@ -782,14 +869,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if startWallUpdate && !halt {
             updateObstacles()
             
-        } else if secondEnemyStart && !halt {
+        } else if secondEnemyStart /*&& !halt*/ {
             
 //            if self.delayTimer >= 3.0{
 //            self.scrollSpeed = 250
 //                self.delayTimer = 0
 //            }
             updateObstacles2()
-        } else if thirdEnemyStart && !halt {
+        } else if thirdEnemyStart /*&& !halt*/ {
 //            
 //            if self.delayTimer >= 3.0{
 //               self.scrollSpeed = 350
@@ -799,9 +886,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
             updateObstacles3()
 //            nullPoint.position.x -= scrollSpeed * CGFloat(fixedDelta)
-        } else if slicerActivation && !halt {
-            slicerENGAGE()
         }
+//            else if slicerActivation && !halt {
+//            slicerENGAGE()
+//        }
         
         
         
