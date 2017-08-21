@@ -66,6 +66,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var runningAnimation = false
     
+    let defaults = UserDefaults.standard // makes code connection to phone memory
+    
+    var highScoreLabel: SKLabelNode!
+    
     //    var leftPressed = false
     //
     //    var rightPressed = false
@@ -160,6 +164,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(pingParticle)
 
         
+       
+        
 //        arrayNode = self.childNode(withName: "arrayNode") as! SKNode
         
         pingBall = self.childNode(withName: "pingBall") as! SKSpriteNode
@@ -201,6 +207,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bottomPosition = CGPoint(x: 284, y: -100)
         
         slicer.position = bottomPosition
+        
+        highScoreLabel = childNode(withName: "highScoreLabel") as! SKLabelNode
+        
+        highScoreLabel.isHidden = true
+        
+        scoreLabel.isHidden = false
         
 //        needleScene = self.childNode(withName: "needleScene") as! SKSpriteNode
         
@@ -288,6 +300,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.deathLabel.isHidden = false
         
         self.quitLabel.isHidden = false
+        
+        highScoreLabel.isHidden = false
+        
+        scoreLabel.isHidden = true
+        
+        
+        let previousScore = defaults.integer(forKey: "highScore")
+        if points > previousScore {
+            defaults.set(points, forKey: "highScore")
+        }
+        highScoreLabel.text = String(defaults.integer(forKey: "highScore"))
+
         
         /* Change play button selection handler */
         //            restartButton.selectedHandler = {
@@ -769,6 +793,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //        jump.isUserInteractionEnabled = true
             return
         }
+        
         
         //    gameOver()
         restartButton.state = .MSButtonNodeStateActive
