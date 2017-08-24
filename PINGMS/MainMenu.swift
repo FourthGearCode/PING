@@ -47,6 +47,8 @@ class MainMenu: SKScene{
     
     var shiftToRight = SKAction.moveTo(x: 568, duration: 1)
     
+    var blackNode: SKSpriteNode!
+    
     override func didMove(to view: SKView) {
         super.didMove(to: view)
         
@@ -62,6 +64,7 @@ class MainMenu: SKScene{
         
         rightScreen = self.childNode(withName: "rightScreen") as! SKSpriteNode
         
+        blackNode = self.childNode(withName: "blackNode") as! SKSpriteNode
         
         startButton.selectedHandler = {
             /* Grab reference to our SpriteKit view */
@@ -94,7 +97,7 @@ class MainMenu: SKScene{
             
         }
         
-//        randomLoad = Int(arc4random_uniform(2))
+        randomLoad = Int(arc4random_uniform(2))
         
 //        var screenFadeOut = mainSecretScreen.alpha{
 //            didSet{
@@ -124,39 +127,61 @@ class MainMenu: SKScene{
 //        }
 //    }
     
-//    
-//    func mainScreenVideo() {
-//        pingMainScreen.position = CGPoint(x: 284, y: 160)
-//        pingMainScreen.zPosition = 2000
-//        pingMainScreen.size.height = 320 //self.frame.height
-//        pingMainScreen.size.width = 568//self.frame.width
-//       
-//        self.addChild(pingMainScreen)
-//        pingMainScreen.play()
-//        print("main screen is playing")
-//    }
-//    
-//    
-//    func secretScreenVideo() {
-//        mainSecretScreen.position = CGPoint(x: 284, y: 160)
-//        mainSecretScreen.zPosition = 2000
-//        mainSecretScreen.size.height = 320 //self.frame.height
-//        mainSecretScreen.size.width = 568//self.frame.width
-//        self.addChild(mainSecretScreen)
-//        mainSecretScreen.play()
-//        print("you've unlocked a secret!")
-//    }
     
+    func mainScreenVideo() {
+        pingMainScreen.position = CGPoint(x: 284, y: 160)
+        pingMainScreen.zPosition = 2000
+        pingMainScreen.size.height = 320 //self.frame.height
+        pingMainScreen.size.width = 568//self.frame.width
+        pingMainScreen.name = "Main Video"
+        self.addChild(pingMainScreen)
+        pingMainScreen.play()
+        print("main screen is playing")
+        randomLoad = 5
+        //self.blackNode.removeFromParent()
+    }
+    
+    
+    func secretScreenVideo() {
+        mainSecretScreen.position = CGPoint(x: 284, y: 160)
+        mainSecretScreen.zPosition = 2000
+        mainSecretScreen.size.height = 320 //self.frame.height
+        mainSecretScreen.size.width = 568//self.frame.width
+        mainSecretScreen.name = "Secret Video"
+        self.addChild(mainSecretScreen)
+        mainSecretScreen.play()
+        print("you've unlocked a secret!")
+        randomLoad = 5
+        //self.blackNode.removeFromParent()
+    }
+    
+//    thank you thinkPad
     override func update(_ currentTime: TimeInterval){
         videoCounter += fixedDelta
         
-//        if load == 0 {
-//            self.secretScreenVideo()
-//            
-//        } else {
-//            self.mainScreenVideo()
-//        }
-//        
+        if randomLoad == 0 {
+            self.secretScreenVideo()
+//            self.blackNode.removeFromParent()
+            
+        } else if randomLoad == 1{
+            self.mainScreenVideo()
+//            self.blackNode.removeFromParent()
+        }
+        
+        if let node = self.childNode(withName: "Main Video") as! SKVideoNode?{
+            if videoCounter >= 2.5{
+                node.removeFromParent()
+                self.blackNode.removeFromParent()
+            }
+        }
+        
+        if let node = self.childNode(withName: "Secret Video") as! SKVideoNode?{
+            if videoCounter >= 2.5{
+                node.removeFromParent()
+                self.blackNode.removeFromParent()
+            }
+        }
+//
 //        if videoCounter >= 4 && load == 0{
 //            secretFade = true
 //        }
