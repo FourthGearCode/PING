@@ -74,7 +74,7 @@ class MainMenu: SKScene{
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             /* Ensure correct aspect mode */
-            scene?.scaleMode = .aspectFill
+            scene?.scaleMode = .aspectFit
             
             /* Restart game scene */
             skView?.presentScene(scene)

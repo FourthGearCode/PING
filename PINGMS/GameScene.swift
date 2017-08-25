@@ -268,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let scene = GameScene(fileNamed:"GameScene") as GameScene!
             
             /* Ensure correct aspect mode */
-            scene?.scaleMode = .aspectFill
+            scene?.scaleMode = .aspectFit
             
             /* Restart game scene */
             skView?.presentScene(scene)
@@ -286,7 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let scene = MainMenu(fileNamed: "pressStart") as MainMenu!
             
             /* Ensure correct aspect mode */
-            scene?.scaleMode = .aspectFill
+            scene?.scaleMode = .aspectFit
             
             /* Restart game scene */
             skView?.presentScene(scene)
@@ -615,20 +615,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             obsCounter += 1
            
-            blue will hit after 50 red and yellow after 100 bluw
+//            blue will hit after 50 red and yellow after 100 blue
             
-            oh I was about to do it... but you already did.... THE enD
-            
-            
-            *thumbs up emoji*
-            *flip off emoji*
-            
-            why
-            because everything is going to shit or at least being half assed
-            
-            the damn render is only half way done and I still didnt send my resume. I cant tell if that shows my incompetence or ..... idfk
-            
-            We'll skip this for now then'
+        
+          
             if blueCounter == 100 {
 //                halt = true
                 secondEnemyStart = false
