@@ -538,7 +538,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             
             
-            if counterTest == 50 {
+            if counterTest == 1{
 //                halt = true
                 startWallUpdate = false
                 secondEnemyStart = true
